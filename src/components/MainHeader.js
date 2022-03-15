@@ -7,7 +7,7 @@ import { selectCars } from '../features/car/carSlice';
 import { useSelector } from 'react-redux';
 
 function Header() {
-  const [burgerStatus, setBurgerStatus] = useState(false);
+  const [navStatus, setNavStatus] = useState(false);
   const cars = useSelector(selectCars);
 
   return (
@@ -15,20 +15,20 @@ function Header() {
       <a href="#">
         <img src="/images/logo.svg" alt="Logo"/>
       </a>
-      <Menu>
+      <MainMenu>
         {cars && cars.map((car , index)=>
           <a key={index} href="#">{car}</a>
-        )};
-      </Menu>
+        )}
+      </MainMenu>
       <RightMenu>
         <a href="#">Shop</a>
         <a href="#">Tesla Account</a>
-        <CustomMenu onClick={() => setBurgerStatus(true)} />
+        <CustomMenu onClick={() => setNavStatus(true)} />
       </RightMenu>
-      <BurgerNav show={burgerStatus}>
-          <CloseWrapper>
-            <CustomClose onClick={() => setBurgerStatus(false)} />
-          </CloseWrapper>
+      <BurgerNav show={navStatus}>
+          <CloseWrap>
+            <CustomClose onClick={() => setNavStatus(false)} />
+          </CloseWrap>
           <li><a href="#">Existing Inventory</a></li>
           <li><a href="#">Trade-in</a></li>
           <li><a href="#">Used Inventory</a></li>
@@ -57,7 +57,7 @@ const Container = styled.div`
   z-index: 1;
 `
 
-const Menu = styled.div`
+const MainMenu = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -118,7 +118,7 @@ const BurgerNav = styled.div`
   }
 `
 
-const CloseWrapper = styled.div`
+const CloseWrap = styled.div`
   display: flex;
   justify-content: flex-end;
 `

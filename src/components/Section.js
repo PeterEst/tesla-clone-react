@@ -6,10 +6,10 @@ function Section(props) {
   return (
     <Wrap bgImage={props.backgroundImg}>
         <Fade bottom>
-            <ItemText>
+            <TextItem>
                 <h1>{props.title}</h1>
                 <p>{props.description}</p>
-            </ItemText>
+            </TextItem>
         </Fade>
         <Buttons>
             <Fade bottom>
@@ -18,7 +18,7 @@ function Section(props) {
                     {props.rightBtnText && <RightButton>{props.rightBtnText}</RightButton>}
                 </ButtonGroup>
             </Fade>
-            <DownArrow src="/images/down-arrow.svg" />
+            <ArrowDown src="/images/down-arrow.svg" />
         </Buttons>
     </Wrap>
   )
@@ -39,7 +39,7 @@ const Wrap = styled.div`
     align-items: center;
 `
 
-const ItemText = styled.div`
+const TextItem = styled.div`
     padding-top: 15vh;
     text-align: center;
 `
@@ -74,11 +74,9 @@ const RightButton = styled(LeftButton)`
     color: black;
 `
 
-const DownArrow = styled.img`
+const ArrowDown = styled.img`
     height: 40px;
     animation: animateDown infinite 1.5s;
 `
 
-const Buttons = styled.div`
-
-`
+const Buttons = styled.div``
