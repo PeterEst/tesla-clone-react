@@ -75,8 +75,14 @@ const RightButton = styled(LeftButton)`
 `
 
 const ArrowDown = styled.img`
+    margin-bottom: 10px;
     height: 40px;
     animation: animateDown infinite 1.5s;
 `
 
-const Buttons = styled.div``
+const Buttons = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`
